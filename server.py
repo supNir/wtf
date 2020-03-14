@@ -16,5 +16,10 @@ def traning(prof):
     return render_template('science.html')
 
 
+@app.route('/list_prof/<list>')
+def list_prof(list):
+    return render_template('list.html', list=list)
+
+
 if __name__ == '__main__':
     app.run()
