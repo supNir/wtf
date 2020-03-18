@@ -11,14 +11,25 @@ def index(title):
 
 @app.route('/training/<prof>')
 def traning(prof):
-    if "строитель" in prof.lower() or "инженер" in prof.lower():
-        return render_template('engineer.html')
-    return render_template('science.html')
+    return render_template('science.html', prof=prof)
 
 
 @app.route('/list_prof/<list>')
 def list_prof(list):
     return render_template('list.html', list=list)
+
+
+@app.route('/answer')
+@app.route('/auto_answer')
+def answer():
+    return render_template('answer.html', slovar={'title': 'анкета',
+                                                  'surname': 'Wathy',
+                                                  'name': 'Mark',
+                                                  'education': 'выше среднего',
+                                                  'profession': 'штурман марсохоад',
+                                                  'sex': 'male',
+                                                  'motivation': 'Всегда мечтал застрять на Марсе!',
+                                                  'ready': 'True'})
 
 
 if __name__ == '__main__':
